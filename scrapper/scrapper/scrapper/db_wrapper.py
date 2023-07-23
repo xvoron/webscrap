@@ -15,7 +15,7 @@ class DBWrapper:
                 port=port
                 )
             self.logger.info(f"Connected to the database. {self.connection}")
-        except Exception as e:
+        except psycopg2.Error as e:
             self.logger.error(f"Error connecting to the database. {e}")
             raise e
 
@@ -47,4 +47,5 @@ class DBWrapper:
 
     def close(self):
         self.logger.info(f"Closing connection {self.connection}")
+        self.cursor.close()
         self.connection.close()

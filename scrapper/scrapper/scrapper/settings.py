@@ -2,6 +2,9 @@ BOT_NAME = "scrapper"
 
 SPIDER_MODULES = ["scrapper.spiders"]
 NEWSPIDER_MODULE = "scrapper.spiders"
+ITEM_PIPELINES = {
+        "scrapper.pipelines.ScrapperPipeline": 000,
+        }
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 

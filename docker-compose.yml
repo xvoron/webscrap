@@ -14,19 +14,29 @@ services:
     ports:
       - '8000:5000'
     env_file:
-      - env_vars
+      - env
     depends_on:
       db:
         condition: service_started
 
+
   server:
     build: ./web
     ports:
-      - '8080:8080'
+      - '8888:8080'
     env_file:
-      - env_vars
+      - env
     depends_on:
       db:
         condition: service_started
       scrapper:
         condition: service_started
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      db:
+        condition: service_started
+    ports:
+      - '8080:8080'
