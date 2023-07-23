@@ -1,9 +1,12 @@
-FROM python:3.10-alpine
+FROM python:3.10-slim-buster
 
 WORKDIR /scrapper
-COPY . .
+COPY . /scrapper
 
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["scrapy", "crawl", "scrapper"]
+
+WORKDIR /scrapper/scrapper
+CMD ["pwd"]
+CMD ["scrapy", "crawl", "srealitybot"]
