@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>sreality scrapper</title>
+</head>
+<body>
+    <h1>sreality from database</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td><img src="{{ row[1] }}" alt="{{ row[0] }}" style="max-width: 300px; max-height: 300px;"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
