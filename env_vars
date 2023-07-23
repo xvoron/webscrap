@@ -1,0 +1,4 @@
+POSTGRES_USER=srealitybot
+POSTGRES_PASSWORD=password
+POSTGRES_DB=sreality
+DB_TABLE_NAME=sreality
