@@ -10,7 +10,7 @@ class SrealitySpider(scrapy.Spider):
 
     per_page = 500
     url = (f"https://www.sreality.cz/api/cs/v2/estates?"
-           f"category_main_cb=1&category_type_cb=1&per_page={per_page}&tms=1690096716556")
+           f"category_main_cb=1&category_type_cb=1&per_page={per_page}")
 
     def start_requests(self):
         self.logger.info(f"Start scraping {self.url}")

@@ -25,3 +25,15 @@ Make sure you have installed **docker** and **docker-compose**.
 3. Open http://localhost:8080 in your browser.
 4. Enjoy the table with scrapped data :)
 
+# Notes
+
+The scrapper is not optimized in terms of performance and memory usage. It was
+created as PoC.
+
+Web page https://www.sreality.cz/hledani/prodej/byty contains only template and
+some js code. The data are loaded using api.
+
+https://www.sreality.cz/api/cs/v2/estates?category_main_cb=1&category_type_cb=1&per_page=20
+- `per_page` is number of offers per page.
+- `category_main_cb` is category of offer. 1 is **flat**.
+- `category_type_cb` is type of offer. 1 is **sell**.
