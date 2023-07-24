@@ -18,8 +18,8 @@ class ScrapperPipeline:
                 dbname=os.environ.get('POSTGRES_DB'),
                 user=os.environ.get('POSTGRES_USER'),
                 password=os.environ.get('POSTGRES_PASSWORD'),
-                host='db',
-                port='5432',
+                host=os.environ.get('POSTGRES_HOST'),
+                port=os.environ.get('POSTGRES_PORT'),
             )
 
             self.table_name = os.environ.get("DB_TABLE_NAME")
@@ -40,8 +40,6 @@ class ScrapperPipeline:
             self.logger.error(f"Error connecting to the database: {e}")
             raise e
 
-
-
     def process_item(self, item: SrealityItem, spider):
         """Insert item into the database."""
         self.logger.info(f"Inserting item {item.name} into the database.")
@@ -53,10 +51,8 @@ class ScrapperPipeline:
         INSERT INTO {self.table_name} (name, image_url)
         VALUES (%s, %s)
         """
-
         self.cursor.execute(sql, (name, image_url))
         self.connection.commit()
-
         return item
 
     def close_spider(self, spider):

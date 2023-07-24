@@ -6,7 +6,5 @@ COPY . /scrapper
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-
 WORKDIR /scrapper/scrapper
-CMD ["pwd"]
 CMD ["scrapy", "crawl", "srealitybot"]

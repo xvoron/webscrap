@@ -5,7 +5,7 @@ from dataclasses import dataclass
 class SrealityItem:
     name: str
     image_url: str
-    
+
 
 def get_item(data: dict) -> SrealityItem:
     return SrealityItem(
