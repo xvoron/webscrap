@@ -1,3 +1,4 @@
 scrapy
 pydantic
 psycopg2-binary
+requests
